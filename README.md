@@ -121,7 +121,7 @@ Please expand the downloaded ImageMaskDataset and put it under <b>./dataset</b> 
 <b>Tiled-BreCaHAD Dataset Statistics</b><br>
 <img src ="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/Tiled-BreCaHAD-ImageMask-Dataset-M1_Statistics.png" width="512" height="auto"><br>
 <br>
-As shown above, the number of images of train and valid datasets is enough large to use for a training set for our segmenttion model. 
+As shown above, the number of images of train and valid datasets is enough large to use for a training set for our segmentation model. 
 <br>
 
 <br>
