@@ -461,7 +461,7 @@ python ../../../src/TensorflowUNetTiledInferencer.py ./train_eval_infer_aug.conf
 <!--
   -->
 <b>Comparison of Non-tiled inferred mask and Tiled-Inferred mask</b><br>
-As shown below, the tiled inference provides clearer and better results than non-tiled infernce.<br>
+As shown below, the tiled inferencer provides clearer and better results than non-tiled inferencer.<br>
 <br>
 <table>
 <tr>
