@@ -29,8 +29,7 @@ Namely, this is a mixed set of Tiled and Non-Tiled ImageMask Datasets.
 
 <hr>
 <b>Actual Image Segmentation for Images of 1360x1024 pixels</b><br>
-As shown below, the tiled inferred masks look similar to the ground truth masks.
-
+As shown below, the tiled inferred masks look somewhat similar to the ground truth masks, but they lack precision in certain areas.
 <table>
 <tr>
 <th>Input: image</th>
