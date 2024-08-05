@@ -3,7 +3,7 @@
 This is the first experiment of Tiled Image Segmentation for BreCaHAD:A Dataset for Breast Cancer Histopathological Annotation and Diagnosis based on
 the <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>, and
 <a href="https://drive.google.com/file/d/1ppmWc-AxMFZeiu66_GwTFJ5lgHc-y3jz/view?usp=sharing">
-Tiled-BreCaHAD-ImageMask-Dataset-M1.zip</a>, which was derived by us from the original 
+Tiled-BreCaHAD-ImageMask-Dataset</a>, which was derived by us from the original 
 dataset 
 <a href="https://figshare.com/articles/dataset/BreCaHAD_A_Dataset_for_Breast_Cancer_Histopathological_Annotation_and_Diagnosis/7379186">
 BreCaHAD: A Dataset for Breast Cancer Histopathological Annotation and Diagnosis
@@ -101,7 +101,7 @@ authored by Alper Aksac, Douglas J. Demetrick, Tansel Özyer, Reda Alhajj<br>
  If you would like to train this Tiled-BreCaHAD Segmentation model by yourself,
  please download the dataset from the google drive 
 <a href="https://drive.google.com/file/d/1ppmWc-AxMFZeiu66_GwTFJ5lgHc-y3jz/view?usp=sharing">
-Tiled-BreCaHAD-ImageMask-Dataset-M1.zip</a>,
+Tiled-BreCaHAD-ImageMask-Dataset</a>,
 <br>
 Please expand the downloaded ImageMaskDataset and put it under <b>./dataset</b> folder to be
 <pre>
