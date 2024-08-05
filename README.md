@@ -18,7 +18,7 @@ In this experiment, we employed the following strategy:
 <br>
 1. We trained and validated a TensorFlow UNet model using the Tiled-BreCaHAD-ImageMask-Dataset, which was tiledly-splitted to 512x512
  and reduced to 512x512 image and mask dataset.<br>
-2. We applied the Tiled-Image Segmentation inference method to predict the cell regions for the test images 
+2. We applied the Tiled-Image Segmentation inference method to predict the tumor regions for the mini_test images 
 with a resolution of 1360x1024 pixels. 
 <br><br>
 </b>  
@@ -28,7 +28,7 @@ Please note that Tiled-BreCaHAD-ImageMask contains two types of images and masks
 Namely, this is a mixed set of Tiled and Non-Tiled ImageMask Datasets.
 
 <hr>
-<b>Actual Image Segmentation for Images of 1360x1000 pixels</b><br>
+<b>Actual Image Segmentation for Images of 1360x1024 pixels</b><br>
 As shown below, the tiled inferred masks look similar to the ground truth masks.
 
 <table>
