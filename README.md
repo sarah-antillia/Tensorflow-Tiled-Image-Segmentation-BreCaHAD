@@ -313,7 +313,7 @@ patience      = 10
 </pre>
 
 <b>Epoch change inference callbacks</b><br>
-Enabled EpochChange infer callbacks.<br>
+Enabled epoch_change_infer and epoch_change_tiledinfer callbacks.<br>
 <pre>
 [train]
 epoch_change_infer       = True
