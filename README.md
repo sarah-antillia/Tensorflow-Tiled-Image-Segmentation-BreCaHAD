@@ -1,6 +1,6 @@
 <h2>Tensorflow-Tiled-Image-Segmentation-BreCaHAD (2024/08/06)</h2>
 
-This is the first experiment of Image Segmentation for BreCaHAD:A Dataset for Breast Cancer Histopathological Annotation and Diagnosis based on
+This is the first experiment of Tiled Image Segmentation for BreCaHAD:A Dataset for Breast Cancer Histopathological Annotation and Diagnosis based on
 the <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>, and
 <a href="https://drive.google.com/file/d/1ppmWc-AxMFZeiu66_GwTFJ5lgHc-y3jz/view?usp=sharing">
 Tiled-BreCaHAD-ImageMask-Dataset-M1.zip</a>, which was derived by us from the original 
@@ -101,10 +101,10 @@ authored by Alper Aksac, Douglas J. Demetrick, Tansel Özyer, Reda Alhajj<br>
 </h3>
  If you would like to train this Tiled-BreCaHAD Segmentation model by yourself,
  please download the dataset from the google drive 
-<a href="https://drive.google.com/file/d/1mUSsYRuISTS8bSzWXII_Hsc2PeA-39B6/view?usp=sharing">
-Tiled-Tiled-BreCaHAD-2018-ImageMask-Dataset-M1.zip</a>
+<a href="https://drive.google.com/file/d/1ppmWc-AxMFZeiu66_GwTFJ5lgHc-y3jz/view?usp=sharing">
+Tiled-BreCaHAD-ImageMask-Dataset-M1.zip</a>,
 <br>
-Please expand the downloaded ImageMaskDataset and place it under <b>./dataset</b> folder to be
+Please expand the downloaded ImageMaskDataset and put it under <b>./dataset</b> folder to be
 <pre>
 ./dataset
 └─Tiled-BreCaHAD
