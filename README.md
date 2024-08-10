@@ -1,6 +1,6 @@
-<h2>Tensorflow-Tiled-Image-Segmentation-BreCaHAD (Upddated: 2024/08/11)</h2>
+<h2>Tensorflow-Tiled-Image-Segmentation-BreCaHAD (Updated: 2024/08/11)</h2>
 <li>
-2024/08/11: Modified <b>learning_rate</b> and learning_rate <b>reducer_patience</b> in 
+2024/08/11: Modified <b>learning_rate</b> and <b>learning_rate_reducer_patience</b> in 
 <a href="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/train_eval_infer.config">train_eval_infer.config</a> to improve segmentation accuracy.
 </li>
 <br>
