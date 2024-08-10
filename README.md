@@ -1,6 +1,11 @@
-<h2>Tensorflow-Tiled-Image-Segmentation-BreCaHAD (2024/08/06)</h2>
-
-This is the first experiment of Tiled Image Segmentation for BreCaHAD:A Dataset for Breast Cancer Histopathological Annotation and Diagnosis based on
+<h2>Tensorflow-Tiled-Image-Segmentation-BreCaHAD (Upddated: 2024/08/11)</h2>
+<li>
+2024/08/11: Modified <b>learning_rate</b> and learning_rate <b>reducer_patience</b> in 
+<a href="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/train_eval_infer.config">train_eval_infer.config</a> to improve segmentation accuracy.
+</li>
+<br>
+This is the first experiment of Tiled Image Segmentation for 
+<b>BreCaHAD: A Dataset for Breast Cancer Histopathological Annotation and Diagnosis</b> based on
 the <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>, and
 <a href="https://drive.google.com/file/d/1ppmWc-AxMFZeiu66_GwTFJ5lgHc-y3jz/view?usp=sharing">
 Tiled-BreCaHAD-ImageMask-Dataset</a>, which was derived by us from the original 
@@ -121,7 +126,7 @@ Please expand the downloaded ImageMaskDataset and put it under <b>./dataset</b> 
 <b>Tiled-BreCaHAD Dataset Statistics</b><br>
 <img src ="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/Tiled-BreCaHAD-ImageMask-Dataset-M1_Statistics.png" width="512" height="auto"><br>
 <br>
-As shown above, the number of images of train and valid datasets is enough large to use for a training set for our segmentation model. 
+As shown above, the number of images of train and valid datasets is large enough to use for a training set for our segmentation model. 
 <br>
 
 <br>
@@ -148,7 +153,7 @@ Please move to ./projects/Tiled-BreCaHAD and run the following bat file.<br>
 
 <pre>
 ; train_eval_infer.config
-; 2024/08/05 (C) antillia.com
+; 2024/08/07 (C) antillia.com
 
 [model]
 model          = "TensorflowUNet"
@@ -163,9 +168,10 @@ base_filters   = 16
 base_kernels   = (7,7)
 num_layers     = 8
 dropout_rate   = 0.05
-learning_rate  = 0.0001
+learning_rate  = 0.00007
 clipvalue      = 0.5
 dilation       = (1,1)
+;loss           = "bce_iou_loss"
 loss           = "bce_dice_loss"
 metrics        = ["dice_coef"]
 show_summary   = False
@@ -176,6 +182,8 @@ batch_size    = 2
 steps_per_epoch  = 200
 validation_steps = 80
 patience      = 10
+
+;metrics       = ["iou_coef", "val_iou_coef"]
 metrics       = ["dice_coef", "val_dice_coef"]
 
 model_dir     = "./models"
@@ -193,7 +201,7 @@ create_backup  = False
 
 learning_rate_reducer = True
 reducer_factor     = 0.3
-reducer_patience   = 5
+reducer_patience   = 4
 save_weights_only  = True
 
 [eval]
@@ -209,9 +217,9 @@ images_dir    = "./mini_test/images"
 output_dir    = "./mini_test_output"
 
 [tiledinfer] 
-overlapping   = 64
+overlapping   = 128
 images_dir    = "./mini_test/images"
-output_dir    = "./mini_test_tiled_output"
+output_dir    = "./mini_test_output_tiled"
 
 [segmentation]
 colorize      = True
@@ -269,6 +277,7 @@ k        = 1.0
 [brightening]
 alpha  = 1.2
 beta   = 10  
+
 </pre>
 <hr>
 <b>Model parameters</b><br>
@@ -280,6 +289,14 @@ and large num_layers (including a bridge between Encoder and Decoder Blocks).
 base_filters   = 16 
 base_kernels   = (7,7)
 num_layers     = 8
+</pre>
+
+<b>Learning rate</b><br>
+Defined a smaller learning rate than the first experiment.  
+<pre>
+[model]
+learning_rate   = 0.00007
+;learning_rate  = 0.0001
 </pre>
 
 <b>Online augmentation</b><br>
@@ -298,12 +315,13 @@ loss           = "bce_dice_loss"
 metrics        = ["dice_coef"]
 </pre>
 <b>Learning rate reducer callback</b><br>
-Enabled learing_rate_reducer callback. 
+Enabled learing_rate_reducer callback, and smaller reduce_patience than the first experiment
 <pre> 
 [train]
 learning_rate_reducer = True
 reducer_factor     = 0.3
-reducer_patience   = 5
+reducer_patience   = 4
+;reducer_patience  = 5
 </pre>
 <b>Early stopping callback</b><br>
 Enabled early stopping callback with patience parameter.
@@ -335,8 +353,8 @@ By using these callbacks, on every epoch_change, the inference procedures can be
 <img src="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/asset/epoch_change_tiledinfer.png" width="1024" height="auto"><br>
 <br>
 <br>
-In this experiment, we manually terminated the training process at epoch 34.<br><br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/asset/train_console_output_at_epoch_34.png" width="720" height="auto"><br>
+In this experiment, the training process was stopped at epoch 100.<br><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/asset/train_console_output_at_epoch_100.png" width="720" height="auto"><br>
 <br>
 
 <br>
@@ -363,12 +381,17 @@ python ../../../src/TensorflowUNetEvaluator.py ./train_eval_infer_aug.config
 </pre>
 
 Evaluation console output:<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/asset/evaluate_console_output_at_epoch_34.png" width="720" height="auto">
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/asset/evaluate_console_output_at_epoch_100.png" width="720" height="auto">
 <br><br>
 
 <a href="./projects/TensorflowSlightlyFlexibleUNet/Tiled-BreCaHAD/evaluation.csv">evaluation.csv</a><br>
 
-The loss (bce_dice_loss) score for this test dataset is not low, and dice_coef not high as shown below.<br>
+The loss (bce_dice_loss) score and dice_coef were improved from those of the previous result.
+<pre>
+loss,0.151
+dice_coef,0.8296
+</pre>
+<b>previous result </b><br>
 <pre>
 loss,0.2354
 dice_coef,0.713
@@ -460,7 +483,7 @@ python ../../../src/TensorflowUNetTiledInferencer.py ./train_eval_infer_aug.conf
 <!--
   -->
 <b>Comparison of Non-tiled inferred mask and Tiled-Inferred mask</b><br>
-As shown below, the tiled inferencer provides clearer and better results than non-tiled inferencer.<br>
+As shown below, the tiled inferencer provides slightly clearer results than non-tiled inferencer.<br>
 <br>
 <table>
 <tr>
