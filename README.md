@@ -64,7 +64,7 @@ As shown below, the tiled inferred masks look somewhat similar to the ground tru
 <hr>
 <br>
 In this experiment, we have used the simple UNet Model 
-<a href="./src/TensorflowUNet.py">TensorflowSlightlyFlexibleUNet</a> for this Oral Cancer Segmentation.<br>
+<a href="./src/TensorflowUNet.py">TensorflowSlightlyFlexibleUNet</a> for this BreCaHAD Segmentation Model.<br>
 As shown in <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>.
 you may try other Tensorflow UNet Models:<br>
 
